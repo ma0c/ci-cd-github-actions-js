@@ -1,0 +1,14 @@
+name: Dummy CI
+
+on: push
+
+jobs:
+  test:
+    name: Dummy test using yarn test
+    runs-on: ubuntu-latest  
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+    - run: yarn install
+    - run: yarn test
+

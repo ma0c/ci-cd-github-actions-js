@@ -1,0 +1,19 @@
+name: Dummy CD
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    name: Dummy storage using aws sync
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: |
+        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws configure set region us-east-1
+        aws configure set output json
+        aws s3 ls

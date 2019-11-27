@@ -16,4 +16,5 @@ jobs:
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws configure set region us-east-1
         aws configure set output json
-        aws s3 ls
+        yarn build
+        aws s3 sync build s3://ci-cd-github-actions-js.contraslash.com

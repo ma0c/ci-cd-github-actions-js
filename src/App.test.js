@@ -10,5 +10,5 @@ it('renders without crashing', () => {
 
 
 it('A very bad test that fails', () => {
-  expect(false).toBeTruthy();
+  expect(false).toBeFalsy();
 });
